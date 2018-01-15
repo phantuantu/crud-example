@@ -195,6 +195,48 @@
 	  $("#introdate").val(product.IntroductionDate);
 	  $("#url").val(product.Url);
 	}
+	
+	<!-- var Product = { -->
+	  <!-- ProductId: 0, -->
+	  <!-- ProductName: "", -->
+	  <!-- IntroductionDate: "", -->
+	  <!-- Url: "" -->
+	<!-- } -->
+	
+	//Update function
+	function updateClick() {
+	  // Build product object from inputs
+	  Product = new Object();
+	  Product.ProductId = 0;
+	  Product.ProductName = $("#productname").val();
+	  Product.IntroductionDate =
+		  $("#introdate").val();
+	  Product.Url = $("#url").val();
+	  if ($("#updateButton").text().trim() ==
+				"Add") {
+		productAdd(Product);
+	  }
+	}
+	
+	function productAdd(product) {
+	  productAddSuccess(product);
+	}
+	
+	function productAddSuccess(product) {
+	  productAddRow(product);
+	  formClear();
+	}
+	
+	function formClear() {
+	  $("#productname").val("");
+	  $("#introdate").val("");
+	  $("#url").val("");
+	  $("#updateButton").text("Add");
+	}
+	function addClick() {
+	  formClear();
+	}
+	
 	</script>
 </body>
 </html>
